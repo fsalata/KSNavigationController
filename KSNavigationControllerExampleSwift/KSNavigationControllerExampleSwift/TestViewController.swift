@@ -13,19 +13,19 @@ class TestViewController: NSViewController, KSNavigationControllerCompatible {
 
     @IBOutlet weak var textField: NSTextField!
     
-    @IBAction func pushAction(sender: AnyObject) {
+    @IBAction func pushAction(_ sender: AnyObject) {
         self.navigationController?.pushViewController(TestViewController(), animated: true)
     }
 
-    @IBAction func popAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func popAction(_ sender: AnyObject) {
+        _ = self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor(red: CGFloat(arc4random_uniform(63)) / 63.0 + 0.5, green: CGFloat(arc4random_uniform(63)) / 63.0 + 0.5, blue: CGFloat(arc4random_uniform(63)) / 63.0 + 0.5, alpha: 1).CGColor
+        self.view.layer?.backgroundColor = NSColor(red: CGFloat(arc4random_uniform(63)) / 63.0 + 0.5, green: CGFloat(arc4random_uniform(63)) / 63.0 + 0.5, blue: CGFloat(arc4random_uniform(63)) / 63.0 + 0.5, alpha: 1).cgColor
         
         if let count = self.navigationController?.viewControllersCount {
             self.textField.stringValue = String(count)
